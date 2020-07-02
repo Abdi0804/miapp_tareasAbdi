@@ -1,0 +1,12 @@
+.check {
+    width:15px;
+    height:25px;
+    }
+
+    
+    .strikethrough:checked + .strikeThis {
+        text-decoration: line-through
+   }
+   input:disabled {
+    background: #ccc;
+  }

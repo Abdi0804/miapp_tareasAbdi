@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <script src='main.js'></script>
+</head>
+<body>
+
+    
+    
+
+  <form [formGroup]="rnotas" (ngSubmit)="registrar(rnotas.value)" novalidate>
+    <div class="form-row offset-md-1" >
+        <div class="col-sm-10 my-1 offset-md-1">
+            <label class="sr-only" for="inlineFormInputGroupUsername">Titulo de la nota</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Titulo</div>
+                </div>
+                <input type="text" class="form-control" formControlName="nota" id="nota"  name="nota"  [(ngModel)]="nota" placeholder="Titulo" required autofocus>
+        
+            </div> 
+            <div class="err" *ngIf="rnotas.get('nota').errors && rnotas.get('nota').dirty">
+                <p *ngIf="rnotas.get('nota').hasError('required')">Campo requerido</p>
+                </div> 
+        </div>
+        <hr><hr>
+        <div class="input-group col-sm-10 offset-md-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Descripción</span>
+            </div>
+            <textarea id="desc" name="desc" class="form-control" formControlName="desc" [(ngModel)]="desc" aria-label="With textarea" placeholder="Agregar descripción de la nota"></textarea>
+        </div>
+      
+      <div class="form-group" class="form-group col-sm-2 offset-md-1">
+        <button type="submit" class="btn btn-success" [disabled]="rnotas.invalid" (click)="onSubmit()" class="btn btn-primary col-md-8">Guardar</button>
+      </div>
+        
+    </div>
+
+        <div class="form-row">
+        <div class="input-group mb-4 offset-md-1" >
+    <div class="card border-info offset-md-1" style="max-width: 18rem;" *ngFor="let item of notas;let indice=index">
+        <div class="card-header"><p>{{ fechaActual | date:'dd/MM/yyyy' }}</p></div>
+        <div class="card-body text-info" >
+          <h5 class="card-title"></h5>
+          <p class="card-body" >{{item}}</p>
+        </div>
+    </div>
+</div></div>
+
+  </form>
+</body>
+</html>

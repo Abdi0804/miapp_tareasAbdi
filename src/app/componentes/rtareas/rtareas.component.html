@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <script src='main.js'></script>
+</head>
+<body>
+
+    
+    
+
+  <form [formGroup]="regtareas" (ngSubmit)="registrar(regtareas.value)" novalidate>
+     
+    <div class="form-row">
+        
+        <div class=" col-md-9 offset-md-1"><label for="tareaid"><strong> Tareas a realizar </strong></label>
+        </div>
+      <div class=" col-md-10">
+          <input type="text" class="form-control col-md-11 offset-md-1 " formControlName="tarea" id="tarea"  name="tarea"  [(ngModel)]="tarea" placeholder="Descripción de la tarea">
+        </div>
+        <div class="err" *ngIf="regtareas.get('tarea').errors && regtareas.get('tarea').dirty">
+            <p *ngIf="regtareas.get('tarea').hasError('required')">Campo requerido</p>
+            </div>
+      
+      <div class="form-group" class="form-group col-md-2">
+        <button type="submit" class="btn btn-success" [disabled]="regtareas.invalid" (click)="onSubmit()" class="btn btn-primary col-md-8">Guardar</button>
+      </div>
+        <button type="submit" class="btn btn-danger mb-2 offset-md-1" (click)="onDelete()">Eliminar</button>
+    </div>
+    
+    
+  </form>
+        <div class="form-row">
+            
+            <div class="input-group mb-5 offset-md-1" >
+                <table>
+                    <tr *ngFor="let item of tareas;let indice=index">
+                       
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" >
+                              <input type="checkbox" id="checT"  name="chec" class="check" class="strikethrough" >
+                              <label for="chec" class="strikeThis">  {{ item}}</label>
+                            </div>
+                        </div>
+                        
+                            
+                      </tr>
+                    </table> 
+            </div>
+        </div>
+        
+</body>
+</html>

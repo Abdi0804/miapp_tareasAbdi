@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "miapp-tareasAbdi"
+    }
+  },
+  "defaultProject": "miapp-tareasAbdi",
+  "cli": {
+    "analytics": "313155e2-5363-4906-b718-30d868dfe51e"
+  }
 }
