@@ -20,7 +20,7 @@
                 <div class="input-group-prepend">
                     <div class="input-group-text">Titulo</div>
                 </div>
-                <input type="text" class="form-control" formControlName="nota" id="nota"  name="nota"  [(ngModel)]="nota" placeholder="Titulo" required autofocus>
+                <input [(ngModel)]="nota" type="text" class="form-control" formControlName="nota" id="nota"  name="nota"   placeholder="Titulo" required autofocus>
         
             </div> 
             <div class="err" *ngIf="rnotas.get('nota').errors && rnotas.get('nota').dirty">
@@ -32,14 +32,18 @@
             <div class="input-group-prepend">
               <span class="input-group-text">Descripción</span>
             </div>
-            <textarea id="desc" name="desc" class="form-control" formControlName="desc" [(ngModel)]="desc" aria-label="With textarea" placeholder="Agregar descripción de la nota"></textarea>
+            <textarea [(ngModel)]="desc" id="desc" name="desc" class="form-control" formControlName="desc" aria-label="With textarea" placeholder="Agregar descripción de la nota"></textarea>
         </div>
       
-      <div class="form-group" class="form-group col-sm-2 offset-md-1">
-        <button type="submit" class="btn btn-success" [disabled]="rnotas.invalid" (click)="onSubmit()" class="btn btn-primary col-md-8">Guardar</button>
+        <div class="form-group" class="form-group col-md-2">
+          <button type="submit"  [disabled]="rnotas.invalid"  (click)="guardarArray()" class="btn btn-primary col-md-8">Guardar</button>
+        </div>
+          <button  (click)="mostrarArray()" class="btn btn-success mb-2 offset-md-1" >Mostrar Datos</button>
+      </div>
+      <div class="alert alert-primary" role="alert" >
+              {{notas}}
       </div>
         
-    </div>
 
         <div class="form-row">
         <div class="input-group mb-4 offset-md-1" >

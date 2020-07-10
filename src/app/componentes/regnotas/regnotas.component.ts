@@ -12,6 +12,7 @@ export class RegnotasComponent {
   rnotas: FormGroup;
 
   public notas: Array<string> = [];
+  item : string;
   public nota: string="";
   public desc: string="";
   public registro: string="";
@@ -37,11 +38,23 @@ export class RegnotasComponent {
     console.log(values);
 }
 
-onSubmit(){
+guardarArray(){
+  this.registro =  " TITULO: " + this.nota + " Descripcion de la nota: " + this.desc;
+  this.notas.push(this.registro);
+  
+  localStorage.setItem('notas', JSON.stringify(this.notas));
+  
+  }
+  
+  mostrarArray(){
+  this.notas = JSON.parse(localStorage.getItem('notas'));
+  }
+
+/*onSubmit(){
   this.registro =  " TITULO: " + this.nota + " Descripcion de la nota: " + this.desc;
   this.notas.push(this.registro);
   console.log(this.notas);
-}
+}*/
 
 empty() {
   //empty your array
